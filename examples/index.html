@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>scroll-frames example</title>
+  <script src="/dist/scroll-frames.global.js" defer></script>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #0b0b0b; color: #fff; }
+    .spacer { min-height: 70vh; display: grid; place-items: center; color: #888; }
+    .title { position: absolute; left: 6vw; bottom: 12vh; font-size: clamp(32px, 7vw, 96px); font-weight: 800; margin: 0; text-transform: uppercase; }
+    .kicker { position: absolute; left: 6vw; top: 10vh; letter-spacing: .15em; text-transform: uppercase; font-size: 13px; }
+    .play { position: absolute; right: 6vw; bottom: 12vh; padding: 10px 16px; border-radius: 99px; border: 0; background: #ff4d2e; color: #fff; font-weight: 600; }
+    [data-sf-playing] .play::after { content: " (pause)"; }
+    .bar { position: absolute; left: 0; bottom: 0; height: 4px; width: calc(var(--sf-progress) * 100%); background: #ff4d2e; }
+    .card { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+    .card scroll-frames { border-radius: 16px; overflow: hidden; }
+    .caption { position: absolute; inset: auto 16px 16px; font-size: 20px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="spacer">Scroll down ↓</div>
+
+  <!-- PIN MODE: sticks to the screen, 6 screens of scrolling -->
+  <scroll-frames id="tour" src="/examples/frames/demo" mode="pin" length="6">
+    <p class="kicker" data-from="0:00" data-to="0:05">Welcome</p>
+
+    <!-- data-at: chapters — each shows until the next one starts -->
+    <h2 class="title" data-at="0:00">Exterior</h2>
+    <h2 class="title" data-at="0:06">Foyer</h2>
+    <h2 class="title" data-at="0:12">Kitchen</h2>
+    <h2 class="title" data-at="0:18">Backyard</h2>
+
+    <button class="play" data-sf-play>▶ Play</button>
+    <div class="bar"></div>
+  </scroll-frames>
+
+  <div class="spacer">Inline mode below ↓</div>
+
+  <!-- INLINE MODE: a normal box that scrubs as it passes through the viewport -->
+  <div class="card">
+    <scroll-frames src="/examples/frames/demo" mode="inline" smooth="0.3">
+      <p class="caption" data-from="40%" data-to="70%" data-anim="fade">Halfway there</p>
+    </scroll-frames>
+  </div>
+
+  <div class="spacer">End</div>
+
+  <script>
+    // Events: react to anything in JS
+    document.getElementById("tour").addEventListener("sf:cue", (e) => {
+      if (e.detail.active) console.log("cue on:", e.detail.el.textContent);
+    });
+  </script>
+</body>
+</html>
