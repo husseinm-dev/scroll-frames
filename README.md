@@ -52,7 +52,7 @@ video.mp4 ──(CLI: ffmpeg)──▶ frames/house/
 See [Sharing this package](#sharing-this-package-across-your-projects) for the install source. Using GitHub:
 
 ```bash
-npm i github:YOUR-GITHUB/scroll-frames
+npm i github:husseinm-dev/scroll-frames#v0.1.1
 npm i -D sharp          # optional: lets the CLI make WebP even if your ffmpeg can't
 ```
 
@@ -84,7 +84,7 @@ npx scroll-frames extract house.mp4 \
 **Plain HTML / Webflow / WordPress** (add the script once, e.g. in the site `<head>`):
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/YOUR-GITHUB/scroll-frames@v0.1.0/dist/scroll-frames.global.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/husseinm-dev/scroll-frames@v0.1.1/dist/scroll-frames.global.js" defer></script>
 
 <scroll-frames src="/frames/house" mode="pin" length="6">
   <h2 data-at="0:00">Exterior</h2>
@@ -299,9 +299,9 @@ Pick one:
 
 **A. GitHub (recommended, free, private OK)**
 1. Create a repo `scroll-frames` and push this folder (the built `dist/` is committed on purpose).
-2. Tag versions: `git tag v0.1.0 && git push --tags`.
-3. In any project: `npm i github:YOUR-GITHUB/scroll-frames#v0.1.0`
-4. Script-tag sites (public repos only): `https://cdn.jsdelivr.net/gh/YOUR-GITHUB/scroll-frames@v0.1.0/dist/scroll-frames.global.js`
+2. Tag versions: `git tag v0.1.1 && git push --tags`.
+3. In any project: `npm i github:husseinm-dev/scroll-frames#v0.1.1`
+4. Script-tag sites (public repos only): `https://cdn.jsdelivr.net/gh/husseinm-dev/scroll-frames@v0.1.1/dist/scroll-frames.global.js`
 
 **B. npm (free for public packages)**
 `npm publish --access public` (rename to `@your-name/scroll-frames` in `package.json` first). Then `npm i @your-name/scroll-frames` anywhere, and the CDN URL is `https://cdn.jsdelivr.net/npm/@your-name/scroll-frames`.
@@ -318,8 +318,8 @@ cd scroll-frames
 # edit src/…
 npm run build             # rebuild dist/
 npm run example           # http://localhost:5173 — demo page (make frames first, see below)
-git commit -am "…" && git tag v0.1.1 && git push --tags
-# in a site: npm i github:YOUR-GITHUB/scroll-frames#v0.1.1
+git commit -am "…" && git tag v0.1.2 && git push --tags
+# in a site: npm i github:husseinm-dev/scroll-frames#v0.1.2
 ```
 
 Demo frames for the example page:

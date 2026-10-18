@@ -1,6 +1,6 @@
 {
   "name": "scroll-frames",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scroll-scrubbed image sequences (video → frames) for any element. Web component, React wrapper, and CLI.",
   "license": "MIT",
   "type": "module",
@@ -99,6 +99,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR-GITHUB/scroll-frames.git"
+    "url": "git+https://github.com/husseinm-dev/scroll-frames.git"
   }
 }
